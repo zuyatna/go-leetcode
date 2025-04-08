@@ -1,5 +1,9 @@
 package main
 
+/* LeetCode Daily Challenge
+* https://leetcode.com/problems/minimum-number-of-operations-to-make-elements-in-array-distinct
+ */
+
 import (
 	"fmt"
 	"slices"
@@ -19,6 +23,7 @@ func main() {
 func minimumOperation(nums []int) int {
 	operations := 0
 
+	fmt.Println("Initial nums:", nums)
 	for {
 		// Create a map to count the frequency of each number
 		count := make(map[int]int)
@@ -46,6 +51,9 @@ func minimumOperation(nums []int) int {
 			if duplicateFound {
 				nums = slices.Delete(nums, 0, 3)
 				operations++
+
+				fmt.Println("Updated nums:", nums)
+
 				continue // Restart the loop with the updated array
 			}
 		} else {
